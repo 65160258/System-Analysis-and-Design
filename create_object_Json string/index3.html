@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+<h2>Create Object from JSON String</h2>
+
+<p id="demo"></p>
+
+<script>
+const myObj = {
+  name: "Toey",
+  age: 20,
+  city: "Bangkok",
+  zipcode: "18240"
+};
+
+const myJSON = JSON.stringify(myObj);
+localStorage.setItem("testJSON", myJSON);
+
+let text = localStorage.getItem("testJSON");
+let obj = JSON.parse(text);
+
+document.getElementById("demo").innerHTML = obj.zipcode + " " + obj.age + " " + obj.city;
+</script>
+
+</body>
+</html>

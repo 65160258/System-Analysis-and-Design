@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+<h2>Create Object from JSON String</h2>
+
+<p id="demo"></p>
+
+<script>
+const myObj = [
+  {
+    name: "Toey",
+    age: 20,
+    pets: ["dog", "cat"]
+  },
+  {
+    name: "Ruk",
+    age: 25,
+    pets: ["dog", "cat"]
+  },
+  {
+    name: "Pao",
+    age: 30,
+    pets: ["dog", "cat"]
+  }
+];
+
+const myJSON = JSON.stringify(myObj);
+localStorage.setItem("testJSON", myJSON);
+
+let text = localStorage.getItem("testJSON");
+let obj = JSON.parse(text);
+
+let result = obj.map(person => {
+  return {
+    Name: person.name,
+    Age: person.age,
+    Pets: person.pets.join(", ")
+  };
+});
+
+document.getElementById("demo").innerHTML = result;
+</script>
+
+</body>
+</html>
